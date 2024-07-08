@@ -28,5 +28,9 @@ public class Methods {
         return ((double) 1 /input.size()) * sum;
     }
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 7f4b4ee3697d67d2fa518dc1108f5db663bee386
 
 }
