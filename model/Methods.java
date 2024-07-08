@@ -28,22 +28,5 @@ public class Methods {
         return ((double) 1 /input.size()) * sum;
     }
 
-    /**
-     * public double covariance(List<Integer> inputX, List<Integer> inputY) {
-     *         int sum = 0;
-     *
-     *         for (int i = 0; i < inputX.size(); i++) {
-     *                 sum += inputY[i]
-     *
-     *             }
-     *
-     *         }
-     *     }
-     */
-
-
-
-
-
 
 }

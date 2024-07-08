@@ -40,11 +40,11 @@ public class Input {
         } catch (InputMismatchException e) {
             System.err.println(INVALID_INPUT_ERROR + inputString);
         }
-        
+
         List<Double> input = new ArrayList<>();
 
         String commands = String.join(System.lineSeparator(), commandHandler.getCommandNames());
-        System.out.println(String.format(INTRO,commands));
+        System.out.println(String.format(INTRO, commands));
 
 
         return input;

@@ -9,7 +9,6 @@ public class Main {
         Input input = new Input();
         CommandHandler commandHandler = new CommandHandler(input);
 
-
         List<Double> numbers = input.takeInput();
         // System.out.println(input.takeInput());
 
