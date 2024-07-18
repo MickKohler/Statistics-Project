@@ -1,6 +1,5 @@
 import commands.CommandHandler;
 import model.Input;
-import model.Methods;
 
 import java.util.List;
 
