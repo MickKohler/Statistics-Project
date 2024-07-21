@@ -2,10 +2,7 @@ package model;
 
 import commands.CommandHandler;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Input {
     private static final String INVALID_INPUT_ERROR = "Invalid input: ";
@@ -14,42 +11,40 @@ public class Input {
     private static final String AMOUNT_OF_NUMBERS = "how many numbers would you like to add?";
     private static final String YOUR_NUMBER = "Your number: ";
     private static final String INTRO = "This is a statistical calculator. Type in one of the following commands to start. The following things can be calculated: %s ";
+    private static final String ARGUMENT_SEPARATOR = ",";
 
-    private final CommandHandler commandHandler;
-
-
-    /**
-     * Instantiates input.
-     * 
-     * @param commandHandler from CommandHandler class.
-     */
-    public Input(CommandHandler commandHandler, CommandHandler commandHandler1) { // TODO possibly adding commandHandler to constructor
-        this.commandHandler = commandHandler;
-    }
-
+    private CommandHandler commandHandler;
     /**
      * Handles user input from console.
      *
      * @return returns list of input Strings.
      */
     public List<Double> takeInput() {
-        String inputString = null;
+        List<Double> numbers = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter numbers separated by spaces (type 'done' to finish):");
 
-        try (Scanner scanner = new Scanner(System.in)) {
-            inputString = scanner.nextLine();
-        } catch (InputMismatchException e) {
-            System.err.println(INVALID_INPUT_ERROR + inputString);
+        while (scanner.hasNext()) {
+            String input = scanner.next();
+            if ("done".equalsIgnoreCase(input)) {
+                break;
+            }
+            try {
+                double number = Double.parseDouble(input);
+                numbers.add(number);
+            } catch (NumberFormatException e) {
+                System.out.println(INVALID_INPUT_ERROR + input);
+            }
         }
 
-        List<Double> input = new ArrayList<>();
-
-        String commands = String.join(System.lineSeparator(), commandHandler.getCommandNames());
-        System.out.println(String.format(INTRO, commands));
-
-
-        return input;
-        
+        return numbers;
     }
+
+    public void printIntroduction() {
+        String commands = String.join(", ", commandHandler.getCommandNames());
+        System.out.println(String.format(INTRO, commands));
+    }
+
 
 }
 

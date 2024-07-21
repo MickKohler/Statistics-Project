@@ -6,12 +6,11 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Input input = new Input();
+        input.takeInput();
         CommandHandler commandHandler = new CommandHandler(input);
 
-        List<Double> numbers = input.takeInput();
-        // System.out.println(input.takeInput());
 
-        Methods methods = new Methods();
-        System.out.println(methods.arithmeticMean(numbers));
+        commandHandler.handleUserInput();
+        
     }
 }

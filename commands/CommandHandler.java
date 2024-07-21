@@ -24,7 +24,7 @@ public class CommandHandler {
     private static final String NORMED_COEFF_OF_VARIATON_COMMAND = "normed coefficient of variation";
     private static final String QUARTILE_DISPERSION_COEFF_COMMAND = "quartile dispersion coefficient";
     private static final String GINI_COEFF_COMMAND = "Gini coefficient";
-    private static final String PEARSON_CORR_COEFF_COMMAND = "Pearson correlation coefficient";
+    private static final String PEARSON_CORR_COEFF_COMMAND = "Bravais Pearson correlation coefficient";
     private static final String SPEARMAN_RANK_CORR_COEFF_COMMAND = "Spearman's rank correlation coefficient";
 
     private static final String COMMAND_SEPARATOR_REGEX = " +";
@@ -90,6 +90,12 @@ public class CommandHandler {
         this.addCommand(QUIT_COMMAND, new Quit(this));
     }
 
+
+    /**
+     * Returns the command names.
+     *
+     * @return the command names
+     */
     public Set<String> getCommandNames() {
         return commands.keySet();
     }
